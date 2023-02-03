@@ -184,42 +184,36 @@ int main()
             }
             // calcular total
             calcularTotal(est, numEst);
-
             // generar observacion
             genObservacion(est, numEst);
             // guardar en archivo
             guardaEstudiantes(est, numEst);
             // cargar estudiantes del archivo
         }
-        else
+
+        if (opcion == 2)
         {
-            if (opcion == 2)
-            {
-                cargarEstudiantes(loadEst);
-                // mostrar estudiantes
-                mostrarEstudiantes(loadEst, numEst);
-            }
-            else
-            {
-                if (opcion == 3)
-                {
-                    cargarEstudiantes(loadEst);
-                    // mostrar  estudiantes aprobados
-                    mostrarExonerados(loadEst, true);
-                }
-                else
-                {
-                    if (opcion == 4)
-                    {
-                        // limpiar archivo
-                        ofstream myfile("datos.txt");
-                        myfile << "";
-                        myfile.close();
-                        cout << "Archivo limpiado con exito" << endl;
-                    }
-                }
-            }
+            cargarEstudiantes(loadEst);
+            // mostrar estudiantes
+            mostrarEstudiantes(loadEst, numEst);
         }
+
+        if (opcion == 3)
+        {
+            cargarEstudiantes(loadEst);
+            // mostrar  estudiantes aprobados
+            mostrarExonerados(loadEst, true);
+        }
+
+        if (opcion == 4)
+        {
+            // limpiar archivo
+            ofstream myfile("datos.txt");
+            myfile << "";
+            myfile.close();
+            cout << "Archivo limpiado con exito" << endl;
+        }
+
     } while (opcion != 5);
     cout << "Programa finalizado!";
     return 0;
